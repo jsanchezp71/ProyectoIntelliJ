@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Table_Based" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc97a963-c0b6-4c19-a348-7e2773e092a3">
+	<property name="template.engine" value="tabular_template"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5) bar"/>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="tableDataset" uuid="f899b830-28f4-4851-988d-399f9a1e3e82">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5) bar"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT mesas.ID_mesa, productos.ID_producto, num_mesa, precio_total, fecha, hora, nombre, precio FROM mesa_producto JOIN productos on mesa_producto.ID_producto=productos.ID_producto JOIN mesas on mesa_producto.ID_mesa=mesas.ID_mesa;]]>
+		</queryString>
+		<field name="ID_mesa" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="ID_mesa"/>
+			<property name="com.jaspersoft.studio.field.label" value="ID_mesa"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="ID_producto" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="ID_producto"/>
+			<property name="com.jaspersoft.studio.field.label" value="ID_producto"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+		</field>
+		<field name="num_mesa" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="num_mesa"/>
+			<property name="com.jaspersoft.studio.field.label" value="num_mesa"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="precio_total" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="precio_total"/>
+			<property name="com.jaspersoft.studio.field.label" value="precio_total"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="fecha" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="fecha"/>
+			<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="hora" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="hora"/>
+			<property name="com.jaspersoft.studio.field.label" value="hora"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="nombre" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+			<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+		</field>
+		<field name="precio" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="precio"/>
+			<property name="com.jaspersoft.studio.field.label" value="precio"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+		</field>
+	</subDataset>
+	<subDataset name="DatasetHistorico" uuid="6cdae8d9-070e-4f1d-98bc-31ec38a4c8d6">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5) bar"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT mesas.ID_mesa, mesas.num_mesa, mesas.fecha, mesas.hora, mesas.precio_total, productos.nombre, productos.precio FROM `mesas` JOIN mesa_producto ON mesas.ID_mesa=mesa_producto.ID_mesa JOIN productos ON mesa_producto.ID_producto=productos.ID_producto ORDER BY mesas.ID_mesa;]]>
+		</queryString>
+		<field name="ID_mesa" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="ID_mesa"/>
+			<property name="com.jaspersoft.studio.field.label" value="ID_mesa"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="num_mesa" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="num_mesa"/>
+			<property name="com.jaspersoft.studio.field.label" value="num_mesa"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="fecha" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="fecha"/>
+			<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="hora" class="java.sql.Time">
+			<property name="com.jaspersoft.studio.field.name" value="hora"/>
+			<property name="com.jaspersoft.studio.field.label" value="hora"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="precio_total" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="precio_total"/>
+			<property name="com.jaspersoft.studio.field.label" value="precio_total"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="mesas"/>
+		</field>
+		<field name="nombre" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+			<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+		</field>
+		<field name="precio" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="precio"/>
+			<property name="com.jaspersoft.studio.field.label" value="precio"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="7fe86308-88cb-417b-a7b0-d43194a776f6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAR DAM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="61" width="525" height="29" uuid="854d6f7a-d38d-4f20-8cb2-81ad9182354c"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[=========================================================================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="90" width="310" height="30" uuid="a91814e2-1596-4697-b77a-65d5dc0beb33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Castellar" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTO HISTORICO DE MESAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="111" width="525" height="29" uuid="479b220d-a482-4d21-86b0-35dda0bbb3b8"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[---------------------------------------------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="30" width="160" height="30" uuid="b3ddccd8-c0be-467a-9726-a718ed826964"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[AV. FELIPE CORCHERO, 37, 06800 MÉRIDA, BADAJOZ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="0" width="525" height="29" uuid="51aac30f-8a04-49ef-9474-579a4ac400aa"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[---------------------------------------------------------------------------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="369" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<componentElement>
+				<reportElement x="23" y="30" width="521" height="200" uuid="a11c20f9-a32b-4345-88dc-616cc79e1a8b">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DatasetHistorico" uuid="2bbabf30-bee9-41b2-8090-3fede43ceec8">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="72" uuid="8c1f987a-d92c-4a2f-8e9b-90dee0127564">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="b547d7e2-71f2-4a23-a83d-3607605d464c"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<text><![CDATA[ID MESA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="30" uuid="ca2c4f48-0a05-4574-81b1-60879e339fe7"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ID_mesa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="fb63ab10-2f18-497e-b367-2b85b2dcd53c">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="2f55ab5b-77ed-406d-a0e5-eb294e02c7e4"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<text><![CDATA[Nº MESA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="30" uuid="ce1e6c19-4c90-4df0-98e8-fb64561069b4"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{num_mesa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="84844d9f-e3ae-4f95-a751-8be000f31895">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="2005b3fb-6ec3-42e5-a5ff-76bdcb2b13ec"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<text><![CDATA[FECHA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="30" uuid="d4feb6df-fcca-4ed6-8e40-a1a2771ca3b5"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="56960e09-3afe-4bce-bb82-3d2d8035213c">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="f4e46ac0-2678-48ec-bba2-c05de43fe41f"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<text><![CDATA[HORA]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="30" uuid="22ce5e7d-a98f-4017-b6a5-277c69f4bd0c"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="f14db3c9-41ec-4ec1-97b0-9dd50291ba2a">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="27a56f17-e683-4329-b198-869494d5fe22"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="30" uuid="9223f3c1-b1fc-42b3-bf11-d6735e411c3c"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{precio_total}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="fe2f4827-fbce-43e4-bcf7-8d3cf5462eb4">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="99290d2a-86ea-4e80-8984-7f5a8cfff779"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<text><![CDATA[PRODUCTO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="30" uuid="ad8ce4ab-a819-464a-98b9-b39220fac541"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="c6d4acdb-08c7-4495-be7b-16512260fa5c">
+						<jr:tableHeader style="Table_TH" height="30"/>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="38a18fb3-c91b-44be-a2d2-65fc198d9667"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<text><![CDATA[PRECIO €]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="30" uuid="aef84274-70ff-41de-9443-68ca7729a6fa"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>
